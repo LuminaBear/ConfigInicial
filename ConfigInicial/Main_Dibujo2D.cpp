@@ -110,7 +110,7 @@ int main() {
 
 
 	};
-	unsigned int indices[] = {  // note that we start from 0!
+	unsigned int indices[] = {
 		11,28,29, //BRAZO DERECHO
 		11,30,31, //BRAZO IZQUIERDO
 		1,33,34, //PATA IZQUIERDA
