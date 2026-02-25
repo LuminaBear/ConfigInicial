@@ -25,7 +25,7 @@ float movZ=-5.0f;
 float rot = 0.0f;
 int main() {
 	glfwInit();
-	//Verificación de compatibilid
+	//Verificación de compatibilidad
 	// Set all the required options for GLFW
 	/*glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -198,6 +198,8 @@ int main() {
 		glBindVertexArray(VAO);
 	
 	    model = glm::mat4(1.0f);
+		model = glm::scale(model, glm::vec3(3.0f, 0.1f, 2.0f)); //Ancho grosor profundidad
+		model = glm::translate(model, glm::vec3(0.0f, 0.6f, 0.0f)); 
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 		glBindVertexArray(0);
@@ -223,9 +225,9 @@ int main() {
 		 movX += 0.08f;
 	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
 		 movX -= 0.08f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_UP) == GLFW_PRESS)
+	 if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
 		 movY += 0.08f;
-	 if (glfwGetKey(window, GLFW_KEY_PAGE_DOWN) == GLFW_PRESS)
+	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
 		 movY -= 0.08f;
 	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
 		 movZ -= 0.08f;
