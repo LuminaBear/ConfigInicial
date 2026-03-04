@@ -1,3 +1,7 @@
+// Martinez Perez Isaac Tadeo Gpo 1
+// 320281589
+// Laboratorio de Computacion Grafica
+
 #include<iostream>
 
 //#define GLEW_STATIC
