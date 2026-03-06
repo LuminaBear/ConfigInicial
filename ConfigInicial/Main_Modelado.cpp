@@ -192,6 +192,7 @@ int main() {
 		GLint modelLoc = glGetUniformLocation(ourShader.Program, "model");
 		GLint viewLoc = glGetUniformLocation(ourShader.Program, "view");
 		GLint projecLoc = glGetUniformLocation(ourShader.Program, "projection");
+		GLint colorLoc = glGetUniformLocation(ourShader.Program, "objectColor");
 
 
 		glUniformMatrix4fv(projecLoc, 1, GL_FALSE, glm::value_ptr(projection));
@@ -202,6 +203,7 @@ int main() {
 		glBindVertexArray(VAO);
 	
 		//Cabeza
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 	    model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(1.0f, 1.0f, 1.0f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f)); 
@@ -209,6 +211,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Boca
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(1.0f, 0.35f, 1.0f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -0.95f, 0.14f));
@@ -216,6 +219,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Ojo Izquierdo
+		glUniform3f(colorLoc, 0.35f, 0.20f, 0.10f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.1f, 0.4f, 1.0f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(-2.0f, 0.15f, 0.08f));
@@ -223,6 +227,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Ojo Derecho
+		glUniform3f(colorLoc, 0.35f, 0.20f, 0.10f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.1f, 0.4f, 1.0f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(2.0f, 0.15f, 0.08f));
@@ -230,6 +235,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Cuerpo
+		glUniform3f(colorLoc, 0.95f, 0.90f, 0.55f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.82f, 1.2f, 0.7f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -0.85f, 0.0f));
@@ -237,6 +243,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Caparazon
+		glUniform3f(colorLoc, 0.45f, 0.28f, 0.12f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.70f, 0.85f, 0.7f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -1.15f, -0.4f));
@@ -244,6 +251,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Base caparazon
+		glUniform3f(colorLoc, 0.96f, 0.87f, 0.70f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.75f, 0.9f, 0.5f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -1.09f, -0.4f));
@@ -251,6 +259,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Brazo Izquierdo
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.8f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(-1.87f, -2.5f, 0.4f));
@@ -258,6 +267,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Brazo Derecho
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.3f, 0.3f, 0.8f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(1.82f, -2.5f, 0.4f));
@@ -265,6 +275,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Pata Izquierda
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.36f, 0.63f, 0.5f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(-0.92f, -2.9f, 0.0f));
@@ -272,6 +283,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Pata Derecha
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.36f, 0.63f, 0.5f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.92f, -2.9f, 0.0f));
@@ -279,6 +291,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Pie Izquierdo
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.36f, 0.15f, 0.5f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(-0.92f, -13.8f, 0.13f));
@@ -286,6 +299,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Pie Derecho
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.36f, 0.15f, 0.5f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.92f, -13.8f, 0.13f));
@@ -293,6 +307,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Cola Abajo
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.40f, 0.2f, 0.7f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -8.0f, -0.5f));
@@ -300,6 +315,7 @@ int main() {
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
 		//Cola Atras
+		glUniform3f(colorLoc, 0.55f, 0.80f, 0.88f);
 		model = glm::mat4(1.0f);
 		model = glm::scale(model, glm::vec3(0.40f, 0.42f, 0.6f)); //Ancho grosor profundidad
 		model = glm::translate(model, glm::vec3(0.0f, -3.25f, -0.9f));
@@ -339,5 +355,3 @@ int main() {
 	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
 		 rot -= 0.4f;
  }
-
-
