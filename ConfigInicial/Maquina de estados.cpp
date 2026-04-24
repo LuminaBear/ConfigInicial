@@ -1,3 +1,7 @@
+// Martinez Perez Isaac Tadeo
+// 320281589
+// Gpo 1
+
 #include <iostream>
 #include <cmath>
 
@@ -131,7 +135,7 @@ int main()
 	glfwWindowHint(GLFW_RESIZABLE, GL_FALSE);*/
 
 	// Create a GLFWwindow object that we can use for GLFW's functions
-	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Animacion maquina de estados", nullptr, nullptr);
+	GLFWwindow* window = glfwCreateWindow(WIDTH, HEIGHT, "Animacion maquina de estados - Martinez Perez Isaac Tadeo", nullptr, nullptr);
 
 	if (nullptr == window)
 	{
@@ -499,6 +503,18 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		AnimBall = !AnimBall;
 		
 	}
+
+	if (keys[GLFW_KEY_M])
+	{
+		AnimDog = !AnimDog;
+
+		if (dogAnim == 0) {
+			dogAnim = 1;
+		}
+		else {
+			dogAnim = 0;
+		}
+	}
 	
 }
 void Animation() {
@@ -514,8 +530,44 @@ void Animation() {
 		//printf("%f", rotBall);
 	}
 	
+	if (dogAnim == 1) {
+		float limiteZ = 2.3f;
+		// Comprueba si el perro aún no ha llegado al borde
+		if (dogPos.z < limiteZ) {
+			if (!step) {
+				RLegs += 0.3f;
+				FLegs += 0.3f;
+				head += 0.3f;
+				tail += 0.3f;
+				if (RLegs > 15.0f) //Condition
+					step = true;
+			}
+			else
+			{
+				RLegs -= 0.3f;
+				FLegs -= 0.3f;
+				head -= 0.3f;
+				tail -= 0.3f;
+				if (RLegs < -15.0f) //Condition
+					step = false;
+			}
+			// Avanza el perro
+			dogPos.z += 0.001f;
+		}
+		else {
+			// El perro ha llegado al límite del piso.
+			dogAnim = 0;
+			AnimDog = false; 
+			// Restablece las variables para que el perro se quede quieto en posición neutral
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
+		}
+	}
 	
 }
+
 
 void MouseCallback(GLFWwindow *window, double xPos, double yPos)
 {
